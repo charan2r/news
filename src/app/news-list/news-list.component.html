@@ -1,0 +1,22 @@
+<div class="news-container">
+    <div class="header">
+      <h2>News Categories</h2>
+      <div class="categories">
+        <button *ngFor="let category of categories" (click)="changeCategory(category)">
+          {{ category | uppercase }}
+        </button>
+      </div>
+    </div>
+  
+    <div *ngIf="newsArticles.length" class="articles">
+      <h3>{{ selectedCategory | uppercase }} News</h3>
+      <div class="article-card" *ngFor="let article of newsArticles">
+        <div>
+          <h4>{{ article.title }}</h4>
+          <p>{{ article.description }}</p>
+          <a [href]="article.url" target="_blank">Read full article</a>
+        </div>
+      </div>
+    </div>
+</div>
+  
